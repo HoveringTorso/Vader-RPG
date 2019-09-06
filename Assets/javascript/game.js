@@ -1,48 +1,84 @@
-var vaders = [
+$(document).ready(function() {
+  var vaders = [
     {
-        name: 'Wimpy Vader',
-        image: 'assets/images/wimpy.jpg',
-        health: 10,
-        attack: 5,
-        counterAttack: 5
-    }
-    {
-        name: 'Whiny Vader',
-        image: 'assets/images/whiny.jpg',
-        health: 20,
-        attack: 10,
-        counterAttack: 10
+      name: "Wimpy Vader",
+      identification: "0",
+      image: "assets/images/wimpy.jpg",
+      health: 10,
+      baseAttack: 5,
+      currentAttack: 5,
+      counterAttack: 5
     },
     {
-        name: 'Wicked Vader',
-        image: 'assets/images/wicked.jpg',
-        health: 50,
-        attack: 20,
-        counterAttack: 20
+      name: "Whiny Vader",
+      identification: "1",
+      image: "assets/images/whiny.jpg",
+      health: 20,
+      baseAttack: 10,
+      currentAttack: 10,
+      counterAttack: 10
     },
     {
-        name: 'Wise Vader',
-        image: 'assets/images/wise.jpg',
-        health: 100,
-        attack: 1,
-        counterAttack: 1
+      name: "Wicked Vader",
+      identification: "2",
+      image: "assets/images/wicked.jpg",
+      health: 50,
+      baseAttack: 20,
+      currentAttack: 20,
+      counterAttack: 20
+    },
+    {
+      name: "Wise Vader",
+      identification: "3",
+      image: "assets/images/wise.jpg",
+      health: 100,
+      baseAttack: 1,
+      currentAttack: 1,
+      counterAttack: 1
     }
-];
+  ];
 
-// When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
+  var playerVader = {};
+  var playerSelected = false;
+  var enemyVader = {};
 
-//    * The player must then defeat all of the remaining fighters. Enemies should be moved to a different area of the screen.
+  // Reorder identification numbers of vaders array to acommodate any changes to which vaders were added/removed
+  function reorderVaderIDs() {
+    for (var i = 0; i < vaders.length; i++) {
+      vaders[i].identification.replace(vaders[i].identification, i);
+    }
+  }
 
-//    * The player chooses an opponent by clicking on an enemy's picture.
+  // Update a card with the necessay vader info
+  function updateCard(cardID, vader) {}
 
-//    * Once the player selects an opponent, that enemy is moved to a `defender area`.
+  // Redraw all cards with updated info
+  function redrawAllCards() {}
 
-//    * The player will now be able to click the `attack` button.
-//      * Whenever the player clicks `attack`, their character damages the defender. The opponent will lose `HP` (health points). These points are displayed at the bottom of the defender's picture. 
-//      * The opponent character will instantly counter the attack. When that happens, the player's character will lose some of their `HP`. These points are shown at the bottom of the player character's picture.
+  // Select an enemy to pull out of the vaders array to the defender area
+  function selectEnemyVader() {}
 
-// 3. The player will keep hitting the attack button in an effort to defeat their opponent.
+  // Initiate one fight between the player and the current enemy vader
+  function fight() {
+      // Subtract the enemyVader's HP by playerVader's currentAttack
+      // Defeat enemyVader if its HP is <= 0
+      // Add playerVader's baseAttack to its currentAttack
+      // If the enemyVader wasn't defeated, subtract the playerVader's HP by enemyVader's counterAttack
+  }
 
-//    * When the defender's `HP` is reduced to zero or below, remove the enemy from the `defender area`. The player character can now choose a new opponent.
-
-// 4. The player wins the game by defeating all enemy characters. The player loses the game the game if their character's `HP` falls to zero or below.
+  console.log(vaders);
+  // When any of the vader cards are click at the beginning of the game, assign that vader to the player
+  $(".selectable").click(function() {
+    if (playerSelected === false) {
+      console.log(vaders);
+      console.log("These are current vaders ^")
+      $(".selectable").removeClass(".selectable");
+      var id = $(this).attr("id");
+      playerVader = vaders[id];
+      vaders.splice(id, 1);
+      reorderVaderIDs();
+      console.log(playerVader);
+      console.log(vaders);
+    }
+  });
+});
