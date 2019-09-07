@@ -1,3 +1,35 @@
-.card {
-    max-width:300px;
+body {
+  background-image: url("../images/lightspeed.jpg");
+  background-color: #000000;
+}
+
+.navbar {
+  padding: 0rem 3rem;
+  color:#ffffff;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.row {
+  margin-top: 12px;
+}
+
+img {
+  max-width: 220px;
+  overflow: hidden;
+}
+
+.card-deck .card {
+  flex: inherit;
+}
+
+.attack-button {
+  max-width: 220px;
+  max-height: 324px;
+}
+
+h1 {
+    color:#ffffff
 }

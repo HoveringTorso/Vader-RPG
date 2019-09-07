@@ -11,54 +11,33 @@
 </head>
 <link rel="stylesheet" href="assets/css/style.css" />
 <body>
-  <button class="selectable" id="1"></button>
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand">VadeRPG</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">New Game</a>
+      </li>
+    </ul>
+  </nav>
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="card-deck" id="top-deck">
-          <!-- name: "Wimpy Vader",
-                identification: "0",
-                image: "assets/images/wimpy.jpg",
-                health: 10,
-                baseAttack: 5,
-                currentAttack: 5,
-                counterAttack: 5 -->
-          <div class="card" id="{identification}">
-            <img src="{image}" class="card-img-top" alt="Vader Image" />
-            <div class="card-body">
-              <h5 class="card-title">{name}</h5>
-              <p class="card-text">
-                <span class="label">ATTACK: </span><span>{baseAttack}</span>
-                <br />
-                <span class="label">COUNTERATTACK: </span
-                ><span>{counterAttack}</span>
-                <br />
-                <span class="label">HEALTH: </span
-                ><span>{currentHealth}/{baseHealth}</span>
-              </p>
-              <div class="progress">
-                <div
-                  class="progress-bar progress-bar-striped bg-danger progress-bar-animated"
-                  role="progressbar"
-                  style="width: {currentHealth/baseHealth * 100}%"
-                >
-                  {currentHealth}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="card-deck" id="top-deck"></div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" id="bottom-row">
       <div class="col">
-        <div class="card-deck"></div>
+        <div class="card-deck">
+          <div class="card" id="player-vader"></div>
+        </div>
       </div>
       <div class="col">
-        <div class="card-deck"></div>
+        <div id="attack-button"></div>
       </div>
       <div class="col">
-        <div class="card-deck"></div>
+        <div class="card-deck">
+          <div class="card" id="enemy-vader"></div>
+        </div>
       </div>
     </div>
   </div>
