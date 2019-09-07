@@ -9,34 +9,59 @@
     crossorigin="anonymous"
   />
 </head>
+<link rel="stylesheet" href="assets/css/style.css" />
 <body>
   <button class="selectable" id="1"></button>
-  <div class="card-deck">
-        <div class="card">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card-deck" id="top-deck">
+          <!-- name: "Wimpy Vader",
+                identification: "0",
+                image: "assets/images/wimpy.jpg",
+                health: 10,
+                baseAttack: 5,
+                currentAttack: 5,
+                counterAttack: 5 -->
+          <div class="card" id="{identification}">
+            <img src="{image}" class="card-img-top" alt="Vader Image" />
+            <div class="card-body">
+              <h5 class="card-title">{name}</h5>
+              <p class="card-text">
+                <span class="label">ATTACK: </span><span>{baseAttack}</span>
+                <br />
+                <span class="label">COUNTERATTACK: </span
+                ><span>{counterAttack}</span>
+                <br />
+                <span class="label">HEALTH: </span
+                ><span>{currentHealth}/{baseHealth}</span>
+              </p>
+              <div class="progress">
+                <div
+                  class="progress-bar progress-bar-striped bg-danger progress-bar-animated"
+                  role="progressbar"
+                  style="width: {currentHealth/baseHealth * 100}%"
+                >
+                  {currentHealth}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card-deck"></div>
+      </div>
+      <div class="col">
+        <div class="card-deck"></div>
+      </div>
+      <div class="col">
+        <div class="card-deck"></div>
+      </div>
+    </div>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
