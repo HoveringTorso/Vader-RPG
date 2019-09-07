@@ -87,6 +87,7 @@ $(document).ready(function() {
     }
     if (playerSelected === true) {
       updateCard("player-vader", playerVader);
+      $("#player-vader").attr("style", "background: #000000; color:#fff");
       $("#player-vader").removeClass("selectable");
     }
     if (enemySelected === true) {
@@ -124,6 +125,18 @@ $(document).ready(function() {
       vaders.splice(id, 1);
       reorderVaderIDs();
       redrawAllCards();
+    } else if (enemySelected === true) {
+      vaders.push(enemyVader);
+      var id = $(this).attr("id");
+      enemyVader = vaders[id];
+      enemyVader.identification.replace(
+        enemyVader.identification,
+        "enemy-vader"
+      );
+      enemySelected = true;
+      vaders.splice(id, 1);
+      reorderVaderIDs();
+      redrawAllCards();
     } else if (playerSelected === true) {
       var id = $(this).attr("id");
       enemyVader = vaders[id];
@@ -135,7 +148,6 @@ $(document).ready(function() {
       vaders.splice(id, 1);
       reorderVaderIDs();
       redrawAllCards();
-      console.log("Enemy Vader is " + enemyVader.name);
     }
   });
 
@@ -159,13 +171,17 @@ $(document).ready(function() {
       $("#attack-button").empty();
       switch (playerVader.name) {
         case "Wimpy":
-          $("#attack-button").html("<h1>You're a person, and you're name is Anakin!<h1>");
+          $("#attack-button").html(
+            "<h1>You're a person, and you're name is Anakin!<h1>"
+          );
           break;
         case "Whiny":
           $("#attack-button").html("<h1>You hate sand!<h1>");
           break;
         case "Wicked":
-          $("#attack-button").html("<h1>You know the power of the dark side!<h1>");
+          $("#attack-button").html(
+            "<h1>You know the power of the dark side!<h1>"
+          );
           break;
         case "Wise":
           $("#attack-button").html("<h1>Luke was right about you!<h1>");
